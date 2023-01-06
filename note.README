@@ -1,0 +1,81 @@
+Built-in Modules: Módulos prontos que oferecem propriedades e métodos
+-OS
+-PATH
+-FS
+-HTTP
+
+Não é preciso instalar um módulo externo(como fizemos com os anteriores) 
+porque é um módulo embutido(built-in).
+
+
+Sync blocking vs Async non-blocking:
+
+Se tiver vários usuários e usarmos um código síncrono 
+pode levar muito tempo para ler a página toda e entregar o necessário e enquanto não for realizada uma tarefa 
+ele não iniciará outra, isso pode então derrubar a aplicação
+
+ORDEM:
+start
+done with this task
+starting the next one
+
+Já na maneira assíncrona, no momento que eu começo uma tarefa eu já desembarco ela e continua com o código, assim se um 
+usuário inicia uma tarefa(ela é tirada da frente), outro usuário pode iniciar outra sem problemas, não há código bloqueando 
+como acontece com a maneira síncrona
+
+ORDEM:
+start
+starting the next one
+done with this task
+
+-Alternativas para o callback hell são usar Promises e também async/await
+
+
+NPM:
+
+-Quando instalamos o Node, instalamos o NPM(Node Packager Manager/Gerenciador de Pacotes do Node) 
+
+O NPM nos possibilita fazer 3 coisas:
+- Reusar nosso próprio código em outros projetos
+- Usar o código escrito por outros desenvolvedores
+- Compartilhar nossas próprias soluções com outros desenvolvedores
+
+- Um projeto geralmente tem npm packages como dependências.
+
+Names:
+-Package = Reusable code(a folder that contains JavaScript code)
+-Modules
+-Dependencies
+(Acabam sendo chamados de maneira intercambiada para a mesma ideia, a mesma coisa).
+
+Da escolha dos pacotes/módulos/dependências no registro:
+-Não há quality control(controle de qualidade) no NPM registry(registro NPM), ou seja, 
+qualquer pessoa pode publicar o que quiser(significando que há pacotes vazios e inúteis).
+-Uma boa indicação da segurança e utilidade de um package é a quantidade de downloads por semana
+(quanto mais popular mais chances de ser algo bom).
+-Outro ponto seria, que há uma grande chance de pessoas já terem se deparado com bugs e como resultado 
+ele já pode ter sido reparado no package ou há uma solução que funciona.
+
+- Para procurar por packages vá ao site npm, no package escolhido há instruções de como instalá-lo via linha de comando, 
+os Weekly Downloads.
+
+-Hoje em dia é menos necessário instalar npm globalmente com o npx
+
+Instalando pacotes npm:
+-Quando instalamos algo localmente aparecerá no package.json a propriedade dependencies com o package(um objeto) que 
+instalamos para testar: npm i lodash (esse pacote tem apenas 1 dependência)
+-Haverá uma pasta nova também chamada node_modules(em que estarão todas as dependências) 
+com uma pasta do package lodash com vários arquivos/módulos dentro.
+
+-Se instalamos um pacote com mais dependências, para testar npm i bootstrap, haverá o nome do pacote na propriedade dependencies do package.json
+assim como o outro, porém na pasta node_modules haverá mais pacotes instalados que são dependências do bootstrap.
+-Então precisamos do package.json para prover informações sobre nosso projeto
+
+RECAPITULANDO:
+-Temos o package.json
+-Instalamos algumas dependências
+-Agora veremos porque o package.json é tão crucial ao compartilhar nosso projeto
+
+Git Hub: 
+- node_modules pode ser muito grande, geralmente não o enviamos, colocamos um .gitignore na pasta "source", que seria 
+a tutorial para ignorar o node_modules já que não é preciso enviá-lo ao repositório do Git Hub
